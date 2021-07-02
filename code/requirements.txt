@@ -1,0 +1,5 @@
+pandas
+scikit-hts
+plotly
+scikit-hts[prophet]
+scikit-hts[auto_arima]
