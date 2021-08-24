@@ -3,19 +3,19 @@
 Time series forecasting is a very common and well known problem in machine learning and statistics. Most of the times, the time series data follows a hierarchical aggregation structure.  For e.g. in retail, weekly sales for a SKU at a store can roll up to different geographical hierarchies at city, state or country level. In these cases we need to ensure, that the sales estimates are in agreement, when rolled up to a higher level. In such scenarios, *Hierarchical Time Series Forecasting*, which is the process of* *generating coherent forecasts* *(or reconciling* *incoherent forecasts),* *allowing individual time series to be forecast individually, but preserving the relationships within the hierarchy, is used.
 Many customers are either using hierarchical forecasting methods or have an upcoming use case that requires hierarchical forecasting to achieve better results. In this notebook we take the example of demand forecasting on synthetic retail data and show you how to train and tune multiple hierarchichal time series models across algorithms and hyper-parameter combinations using the [`scikit-hts`](#https://scikit-hts.readthedocs.io/_/downloads/en/stable/pdf/) toolkit on Amazon SageMaker. We will first show you how to setup scikit-hts on SageMaker using the SKLearn estimator, then train multiple models using SageMaker Experiments, and finally use SageMaker Debugger to monitor suboptimal training and improve training efficiencies. We will walk you through the following steps:
 
-1.	[Setup](#Setup)
-2.	[Prepare Time Series Data](#Prepare-Time-Series-Data)
-    - [Data Visualization](#Data-Visualization)
-    - [Split data into train and test](#Split-data-into-train-and-test)
-    - [Hierarchical Representation](#Hierarchical-Representation)
-    - [Visualizing the tree structure](#Visualizing-the-tree-structure)
-3.	[Setup the scikit-hts training script](#section3)
-4.  [Setup Amazon SageMaker Experiment and Trials](#section4)
-5.	[Setup the SKLearn Estimator](#section5)
-6.	[Evaluate metrics and select a winning candidate](#section7)
-7.	[Run time series forecasts](#Run-time-series-forecasts)
-    - [Visualization at Region Level](#Visualization-at-Region-Level)
-    - [Visualization at State Level](#Visualization-at-State-Level)
+1.	Setup
+2.	Prepare Time Series Data
+    - Data Visualization
+    - Split data into train and test
+    - Hierarchical Representation
+    - Visualizing the tree structure
+3.	Setup the scikit-hts training script
+4.  Setup Amazon SageMaker Experiment and Trials
+5.	Setup the SKLearn Estimator
+6.	Evaluate metrics and select a winning candidate
+7.	Run time series forecasts
+    - Visualization at Region Level
+    - Visualization at State Level
 
 ## Amazon SageMaker
 ----
