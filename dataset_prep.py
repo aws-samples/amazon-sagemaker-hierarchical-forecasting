@@ -24,12 +24,12 @@ def get_region_columns(df, region):
 
 def prepare_data(df_raw):
     print('******************* Prepare Data **********************')
-    product = df_raw[(df_raw['item'] == "Onion")]
+    product = df_raw[(df_raw['item'] == "mens_clothing")]
+    print(product.head())
     product["region_state"] = product.apply(lambda x: f"{x['region']}_{x['state']}", axis=1)
     region_states = product["region_state"].unique()
     grouped_sections = product.groupby(["region", "region_state"])
     edges_hierarchy = list(grouped_sections.groups.keys())
-    
     # Now, we must not forget that total is our root node.
     second_level_nodes = product.region.unique()
     root_node = "total"

@@ -31,7 +31,7 @@ def get_region_columns(df, region):
 
 def prepare_data(df_raw):
     print('******************* Prepare Data **********************')
-    product = df_raw[(df_raw['item'] == "Onion")]
+    product = df_raw[(df_raw['item'] == "mens_clothing")]
     product["region_state"] = product.apply(lambda x: f"{x['region']}_{x['state']}", axis=1)
     region_states = product["region_state"].unique()
     grouped_sections = product.groupby(["region", "region_state"])
@@ -51,7 +51,6 @@ def prepare_data(df_raw):
    
     # create hierarchy
     hierarchy = dict()
-
     for edge in root_edges:
         parent, children = edge[0], edge[1]
         hierarchy.get(parent)
